@@ -10,12 +10,12 @@ To know more about the structure of the tables and the meaning of their content,
 
 However, to read the full documentation and have access to the raw data, please visit the [Fjelstul World Cup Database](https://github.com/jfjelstul/worldcup) repository.
 
-## Installing the Database
+## How Do I Use this Database?
 
-Using your favorite MySQL GUI client, import the following files in order:
-
-1. `worldcup.schema.sql` contains the table structure
-2. `worldcup.data.sql` contains the INSERT statements
+1. Clone this repository
+2. Using your favorite MySQL GUI client, import the following files in order:
+   - `sql/worldcup.schema.sql` contains the table structure
+   - `sql/worldcup.data.sql` contains the INSERT statements
 
 Alternatively, you can import the `World Cup` database using MySQL's CLI by executing the following commands:
 
@@ -72,7 +72,7 @@ MariaDB [worldcup]> select table_name as "Table Name", table_rows  AS "Row Count
 ```
 
 
-## Crediting/Citing the Database
+## Attribution
 
 If you use the database in a paper or a project, please cite the database:
 
