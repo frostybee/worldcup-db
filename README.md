@@ -1,6 +1,6 @@
-# The Fjelstul World Cup MySQL Database
+# The Fjelstul World Cup MySQL/MariaDB Database
 
-This repository contains a MySQL port of the [Fjelstul World Cup Database](https://github.com/jfjelstul/worldcup), a comprehensive database about the FIFA World Cup created by Joshua C. Fjelstul that covers all `22` men's tournaments (1930-2022) and all `8` women's tournaments (1991-2019). The database includes `27` datasets (over 1.58  million data points) that cover all aspects of the World Cup.
+This repository contains a MySQL/MariaDB port of the [Fjelstul World Cup Database](https://github.com/jfjelstul/worldcup), a comprehensive database about the FIFA World Cup created by Joshua C. Fjelstul that covers all `22` men's tournaments (1930-2022) and all `8` women's tournaments (1991-2019). The database includes `27` datasets (over 1.58  million data points) that cover all aspects of the World Cup.
 
 The data and original structure of the database tables and their relationships were not altered. However, modifications have been made to fields' data types to make them MySQL compliant.  
 
@@ -29,7 +29,48 @@ Then,
 mysql -u <username> -p <password> worldcup < worldcup.data.sql
 ```
 
-**NOTE**: There is no need to create a database prior to importing the above .sql scripts as a `worldcup` MySQL database will be created automatically.
+**`NOTE:`** There is no need to create a database prior to importing the above .sql scripts as a `worldcup` MySQL database will be created automatically.
+
+Once imported, the following tables should be created:
+
+```sql
+MariaDB [(none)]> use worldcup;
+Database changed
+MariaDB [worldcup]> select table_name as "Table Name", table_rows  AS "Row Count" FROM information_schema.tables WHERE table_schema = 'worldcup';
++----------------------+-----------+
+| Table Name           | Row Count |
++----------------------+-----------+
+| awards               |         8 |
+| award_winners        |       200 |
+| bookings             |      3235 |
+| confederations       |         6 |
+| goals                |      3710 |
+| groups               |       159 |
+| group_standings      |       626 |
+| host_countries       |        31 |
+| managers             |       475 |
+| manager_appearances  |      2538 |
+| manager_appointments |       637 |
+| matches              |      1248 |
+| penalty_kicks        |       396 |
+| players              |     10206 |
+| player_appearances   |     27459 |
+| qualified_teams      |       625 |
+| referees             |       493 |
+| referee_appearances  |      1248 |
+| referee_appointments |       668 |
+| squads               |     13843 |
+| stadiums             |       240 |
+| substitutions        |     10124 |
+| teams                |        88 |
+| team_appearances     |      2496 |
+| tournaments          |        30 |
+| tournament_stages    |       155 |
+| tournament_standings |       120 |
++----------------------+-----------+
+27 rows in set (0.001 sec)
+```
+
 
 ## Crediting/Citing the Database
 

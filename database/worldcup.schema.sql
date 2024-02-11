@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2024 at 09:12 PM
+-- Generation Time: Feb 11, 2024 at 04:43 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -146,7 +146,7 @@ CREATE TABLE `group_standings` (
   `stage_number` smallint(2) NOT NULL,
   `stage_name` varchar(50) DEFAULT NULL,
   `group_name` varchar(5) NOT NULL,
-  `position` smallint(2) NOT NULL,
+  `position` smallint(2) DEFAULT NULL,
   `team_id` char(5) NOT NULL,
   `played` smallint(2) DEFAULT NULL,
   `wins` smallint(2) DEFAULT NULL,
@@ -607,7 +607,7 @@ ALTER TABLE `groups`
 -- Indexes for table `group_standings`
 --
 ALTER TABLE `group_standings`
-  ADD PRIMARY KEY (`tournament_id`,`stage_number`,`group_name`,`position`),
+  ADD PRIMARY KEY (`tournament_id`,`stage_number`,`group_name`,`team_id`),
   ADD KEY `team_id` (`team_id`);
 
 --
